@@ -123,13 +123,13 @@ tools = [get_weather, search_movies, change__to_f]
 
 # Retrieve the key from the OS environment instead of Colab's userdata
 
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+GOOGLE_API_KEY = os.environ.get("g")
 
 
 
 llm_flash = ChatGoogleGenerativeAI(
 
-    model="gemma-4-31b-it",
+    model="gemini-2.0-flash",
 
     api_key=GOOGLE_API_KEY,
 
@@ -229,7 +229,27 @@ formatted_agent_chain = (
 
 # --- 3. FastAPI App ---
 
-##Need To Code
+app = FastAPI(
+
+    title="Indian Weather & Cinema Agent",
+
+    version="1.0",
+
+    description="An agent restricted to Indian weather and movie questions",
+
+)
+
+
+
+add_routes(
+
+    app,
+
+    formatted_agent_chain,
+
+    path="/agent",
+
+)
 
 
 

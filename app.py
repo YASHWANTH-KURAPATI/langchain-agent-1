@@ -129,7 +129,7 @@ GOOGLE_API_KEY = os.environ.get("g")
 
 llm_flash = ChatGoogleGenerativeAI(
 
-    model="gemini-2.0-flash",
+    model="gemini-3.5-flash",
 
     api_key=GOOGLE_API_KEY,
 
